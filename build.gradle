@@ -1,0 +1,27 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group 'com.lany.demo'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile gradleApi()
+    compile localGroovy()
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //android 本地的仓库
+            repository(url: uri('C:\\Program Files\\Android\\Android Studio\\gradle\\m2repository'))
+        }
+    }
+}
